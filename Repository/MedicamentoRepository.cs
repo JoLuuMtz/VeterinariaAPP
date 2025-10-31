@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Veterinaria.Data;
+using VeterinariaApp.Data;
 using Veterinaria.Interfaces;
 using Veterinaria.Models;
 

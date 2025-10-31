@@ -1,7 +1,8 @@
 ﻿// Models/HistorialMedico.cs
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Veterinaria.Models;
+
+
 
 namespace Veterinaria.Models
 {
@@ -25,6 +26,7 @@ namespace Veterinaria.Models
         [MaxLength(1000)]
         public string Observaciones { get; set; }
 
+        [Column(TypeName = "decimal(10,2)")]
         public decimal PesoRegistrado { get; set; }
 
         [MaxLength(100)]

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Veterinaria.Models;
+using VeterinariaApp.Models;
 
 namespace Veterinaria.Models
 {
@@ -27,6 +28,7 @@ namespace Veterinaria.Models
         [MaxLength(50)]
         public string Color { get; set; }
 
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Peso { get; set; }
 
         [MaxLength(500)]

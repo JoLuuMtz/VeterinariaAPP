@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System;
-using Veterinaria.Data;
+using Veterinaria;
 using Veterinaria.Interfaces;
 using Veterinaria.Repository;
 using Veterinaria.Services;
+using VeterinariaApp.Data;
 
 namespace Veterinaria
 {
@@ -64,6 +66,7 @@ namespace Veterinaria
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
+            
 
             app.Run();
         }

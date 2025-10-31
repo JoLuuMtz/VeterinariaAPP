@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Veterinaria.Data;
+
 using Veterinaria.Interfaces;
 using Veterinaria.Models;
+using VeterinariaApp.Data;
 
 namespace Veterinaria.Repository
 {

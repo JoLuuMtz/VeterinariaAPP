@@ -1,4 +1,5 @@
-using Veterinaria.Models;
+
+using VeterinariaApp.Models;
 
 namespace Veterinaria.Interfaces
 {

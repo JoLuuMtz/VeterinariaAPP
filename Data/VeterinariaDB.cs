@@ -6,9 +6,9 @@ using VeterinariaApp.Models;
 
 namespace VeterinariaApp.Data
 {
-    public class VeterinariaDbContext : DbContext
+    public class VeterinariaDB : DbContext
     {
-        public VeterinariaDbContext(DbContextOptions<VeterinariaDbContext> options)
+        public VeterinariaDB(DbContextOptions<VeterinariaDB> options)
             : base(options)
         {
         }
