@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeterinariaApp.Data;
 
@@ -11,9 +12,11 @@ using VeterinariaApp.Data;
 namespace Veterinaria.Migrations
 {
     [DbContext(typeof(VeterinariaDB))]
-    partial class VeterinariaDBModelSnapshot : ModelSnapshot
+    [Migration("20251104023013_OpcionalClientInMascota")]
+    partial class OpcionalClientInMascota
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

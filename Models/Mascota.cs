@@ -38,8 +38,8 @@ namespace Veterinaria.Models
 
         // Llave foránea
         [ForeignKey("Cliente")]
-        public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public int? ClienteId { get; set; }
+        public Cliente? Cliente { get; set; }
 
         // Relaciones
         public ICollection<Cita> Citas { get; set; }
