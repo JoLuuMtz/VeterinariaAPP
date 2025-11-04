@@ -1,11 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using System;
-using Veterinaria;
 using Veterinaria.Interfaces;
 using Veterinaria.Repository;
 using Veterinaria.Services;
 using VeterinariaApp.Data;
+
+using FluentValidation.AspNetCore;
 
 namespace Veterinaria
 {
@@ -19,9 +18,6 @@ namespace Veterinaria
             builder.Services.AddDbContext<VeterinariaDB>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("VeterinariaDB")));
 
-            // Add services to the container.
-            builder.Services.AddControllers();
-            
             // Configuración de Swagger/OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
@@ -50,6 +46,10 @@ namespace Veterinaria
             builder.Services.AddScoped<IMedicamentoService, MedicamentoService>();
             builder.Services.AddScoped<IHistorialMedicoService, HistorialMedicoService>();
 
+            // Validators
+            builder.Services.AddControllers()
+                .AddFluentValidation(fv => { fv.RegisterValidatorsFromAssembly(typeof(Program).Assembly); });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -66,7 +66,7 @@ namespace Veterinaria
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
-            
+
 
             app.Run();
         }
