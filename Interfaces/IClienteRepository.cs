@@ -13,5 +13,6 @@ namespace Veterinaria.Interfaces
         Task<bool> ExistsAsync(int id);
         Task<bool> ExistsByEmailAsync(string email, int? excludeId = null);
         Task<bool> ExistsByDocumentoIdentidadAsync(string documentoIdentidad, int? excludeId = null);
+        Task<bool> ExistsByTelefonoAsync(string telefono, int? excludeId = null);
     }
 }

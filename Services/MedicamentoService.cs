@@ -111,11 +111,17 @@ namespace Veterinaria.Services
                 if (medicamento == null)
                     return ServiceResult<MedicamentoResponseDTO>.Fail("Medicamento no encontrado.");
 
-                medicamento.Nombre = medicamentoUpdateDTO.Nombre;
-                medicamento.Descripcion = medicamentoUpdateDTO.Descripcion;
-                medicamento.Dosis = medicamentoUpdateDTO.Dosis;
-                medicamento.Frecuencia = medicamentoUpdateDTO.Frecuencia;
-                medicamento.DuracionDias = medicamentoUpdateDTO.DuracionDias;
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (medicamentoUpdateDTO.Nombre != null)
+                    medicamento.Nombre = medicamentoUpdateDTO.Nombre;
+                if (medicamentoUpdateDTO.Descripcion != null)
+                    medicamento.Descripcion = medicamentoUpdateDTO.Descripcion;
+                if (medicamentoUpdateDTO.Dosis != null)
+                    medicamento.Dosis = medicamentoUpdateDTO.Dosis;
+                if (medicamentoUpdateDTO.Frecuencia != null)
+                    medicamento.Frecuencia = medicamentoUpdateDTO.Frecuencia;
+                if (medicamentoUpdateDTO.DuracionDias.HasValue)
+                    medicamento.DuracionDias = medicamentoUpdateDTO.DuracionDias.Value;
 
                 var medicamentoActualizado = await _medicamentoRepository.UpdateAsync(medicamento);
                 if (medicamentoActualizado == null)

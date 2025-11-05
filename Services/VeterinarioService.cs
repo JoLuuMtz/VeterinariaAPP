@@ -71,6 +71,16 @@ namespace Veterinaria.Services
                             "Ya existe un veterinario con este documento de identidad.");
                 }
 
+                // Validar que el teléfono no esté duplicado
+                if (!string.IsNullOrWhiteSpace(veterinarioCreateDTO.Telefono))
+                {
+                    var telefonoExiste =
+                        await _veterinarioRepository.ExistsByTelefonoAsync(veterinarioCreateDTO.Telefono);
+                    if (telefonoExiste)
+                        return ServiceResult<VeterinarioResponseDTO>.Fail(
+                            "Ya existe un veterinario con este número de teléfono.");
+                }
+
                 // Validar que el número de licencia no esté duplicado
                 if (!string.IsNullOrWhiteSpace(veterinarioCreateDTO.NumeroLicencia))
                 {
@@ -135,6 +145,16 @@ namespace Veterinaria.Services
                             "Ya existe otro veterinario con este documento de identidad.");
                 }
 
+                // Validar que el teléfono no esté duplicado (excluyendo el veterinario actual)
+                if (!string.IsNullOrWhiteSpace(veterinarioUpdateDTO.Telefono))
+                {
+                    var telefonoExiste =
+                        await _veterinarioRepository.ExistsByTelefonoAsync(veterinarioUpdateDTO.Telefono, id);
+                    if (telefonoExiste)
+                        return ServiceResult<VeterinarioResponseDTO>.Fail(
+                            "Ya existe otro veterinario con este número de teléfono.");
+                }
+
                 // Validar que el número de licencia no esté duplicado (excluyendo el veterinario actual)
                 if (!string.IsNullOrWhiteSpace(veterinarioUpdateDTO.NumeroLicencia))
                 {
@@ -146,14 +166,23 @@ namespace Veterinaria.Services
                             "Ya existe otro veterinario con este número de licencia.");
                 }
 
-                veterinario.Nombre = veterinarioUpdateDTO.Nombre;
-                veterinario.Apellido = veterinarioUpdateDTO.Apellido;
-                veterinario.Telefono = veterinarioUpdateDTO.Telefono;
-                veterinario.Email = veterinarioUpdateDTO.Email;
-                veterinario.DocumentoIdentidad = veterinarioUpdateDTO.DocumentoIdentidad;
-                veterinario.NumeroLicencia = veterinarioUpdateDTO.NumeroLicencia;
-                veterinario.Especialidad = veterinarioUpdateDTO.Especialidad;
-                veterinario.Activo = veterinarioUpdateDTO.Activo;
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (veterinarioUpdateDTO.Nombre != null)
+                    veterinario.Nombre = veterinarioUpdateDTO.Nombre;
+                if (veterinarioUpdateDTO.Apellido != null)
+                    veterinario.Apellido = veterinarioUpdateDTO.Apellido;
+                if (veterinarioUpdateDTO.Telefono != null)
+                    veterinario.Telefono = veterinarioUpdateDTO.Telefono;
+                if (veterinarioUpdateDTO.Email != null)
+                    veterinario.Email = veterinarioUpdateDTO.Email;
+                if (veterinarioUpdateDTO.DocumentoIdentidad != null)
+                    veterinario.DocumentoIdentidad = veterinarioUpdateDTO.DocumentoIdentidad;
+                if (veterinarioUpdateDTO.NumeroLicencia != null)
+                    veterinario.NumeroLicencia = veterinarioUpdateDTO.NumeroLicencia;
+                if (veterinarioUpdateDTO.Especialidad != null)
+                    veterinario.Especialidad = veterinarioUpdateDTO.Especialidad;
+                if (veterinarioUpdateDTO.Activo.HasValue)
+                    veterinario.Activo = veterinarioUpdateDTO.Activo.Value;
 
                 var veterinarioActualizado = await _veterinarioRepository.UpdateAsync(veterinario);
                 if (veterinarioActualizado == null)

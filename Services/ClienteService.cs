@@ -70,6 +70,15 @@ namespace Veterinaria.Services
                             "Ya existe un cliente con este documento de identidad.");
                 }
 
+                // Validar que el teléfono no esté duplicado
+                if (!string.IsNullOrWhiteSpace(clienteCreateDTO.Telefono))
+                {
+                    var telefonoExiste = await _clienteRepository.ExistsByTelefonoAsync(clienteCreateDTO.Telefono);
+                    if (telefonoExiste)
+                        return ServiceResult<ClienteResponseDTO>.Fail(
+                            "Ya existe un cliente con este número de teléfono.");
+                }
+
                 var cliente = new Cliente
                 {
                     Nombre = clienteCreateDTO.Nombre,
@@ -122,13 +131,30 @@ namespace Veterinaria.Services
                             "Ya existe otro cliente con este documento de identidad.");
                 }
 
-                cliente.Nombre = clienteUpdateDTO.Nombre;
-                cliente.Apellido = clienteUpdateDTO.Apellido;
-                cliente.Telefono = clienteUpdateDTO.Telefono;
-                cliente.Email = clienteUpdateDTO.Email;
-                cliente.DocumentoIdentidad = clienteUpdateDTO.DocumentoIdentidad;
-                cliente.Direccion = clienteUpdateDTO.Direccion;
-                cliente.Activo = clienteUpdateDTO.Activo;
+                // Validar que el teléfono no esté duplicado (excluyendo el cliente actual)
+                if (!string.IsNullOrWhiteSpace(clienteUpdateDTO.Telefono))
+                {
+                    var telefonoExiste = await _clienteRepository.ExistsByTelefonoAsync(clienteUpdateDTO.Telefono, id);
+                    if (telefonoExiste)
+                        return ServiceResult<ClienteResponseDTO>.Fail(
+                            "Ya existe otro cliente con este número de teléfono.");
+                }
+
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (clienteUpdateDTO.Nombre != null)
+                    cliente.Nombre = clienteUpdateDTO.Nombre;
+                if (clienteUpdateDTO.Apellido != null)
+                    cliente.Apellido = clienteUpdateDTO.Apellido;
+                if (clienteUpdateDTO.Telefono != null)
+                    cliente.Telefono = clienteUpdateDTO.Telefono;
+                if (clienteUpdateDTO.Email != null)
+                    cliente.Email = clienteUpdateDTO.Email;
+                if (clienteUpdateDTO.DocumentoIdentidad != null)
+                    cliente.DocumentoIdentidad = clienteUpdateDTO.DocumentoIdentidad;
+                if (clienteUpdateDTO.Direccion != null)
+                    cliente.Direccion = clienteUpdateDTO.Direccion;
+                if (clienteUpdateDTO.Activo.HasValue)
+                    cliente.Activo = clienteUpdateDTO.Activo.Value;
 
                 var clienteActualizado = await _clienteRepository.UpdateAsync(cliente);
                 if (clienteActualizado == null)

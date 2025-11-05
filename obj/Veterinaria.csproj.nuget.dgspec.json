@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj": {}
+    "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj": {}
   },
   "projects": {
-    "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj": {
+    "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
+        "projectUniqueName": "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
         "projectName": "Veterinaria",
-        "projectPath": "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
+        "projectPath": "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
         "packagesPath": "C:\\Users\\JoLuuu\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\obj\\",
+        "outputPath": "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

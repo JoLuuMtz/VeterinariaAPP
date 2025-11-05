@@ -145,13 +145,21 @@ namespace Veterinaria.Services
                 if (historial == null)
                     return ServiceResult<HistorialMedicoResponseDTO>.Fail("Historial médico no encontrado.");
 
-                historial.Fecha = historialMedicoUpdateDTO.Fecha;
-                historial.TipoConsulta = historialMedicoUpdateDTO.TipoConsulta;
-                historial.Diagnostico = historialMedicoUpdateDTO.Diagnostico;
-                historial.Tratamiento = historialMedicoUpdateDTO.Tratamiento;
-                historial.Observaciones = historialMedicoUpdateDTO.Observaciones;
-                historial.PesoRegistrado = historialMedicoUpdateDTO.PesoRegistrado;
-                historial.Temperatura = historialMedicoUpdateDTO.Temperatura;
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (historialMedicoUpdateDTO.Fecha.HasValue)
+                    historial.Fecha = historialMedicoUpdateDTO.Fecha.Value;
+                if (historialMedicoUpdateDTO.TipoConsulta != null)
+                    historial.TipoConsulta = historialMedicoUpdateDTO.TipoConsulta;
+                if (historialMedicoUpdateDTO.Diagnostico != null)
+                    historial.Diagnostico = historialMedicoUpdateDTO.Diagnostico;
+                if (historialMedicoUpdateDTO.Tratamiento != null)
+                    historial.Tratamiento = historialMedicoUpdateDTO.Tratamiento;
+                if (historialMedicoUpdateDTO.Observaciones != null)
+                    historial.Observaciones = historialMedicoUpdateDTO.Observaciones;
+                if (historialMedicoUpdateDTO.PesoRegistrado.HasValue)
+                    historial.PesoRegistrado = historialMedicoUpdateDTO.PesoRegistrado.Value;
+                if (historialMedicoUpdateDTO.Temperatura != null)
+                    historial.Temperatura = historialMedicoUpdateDTO.Temperatura;
 
                 var historialActualizado = await _historialMedicoRepository.UpdateAsync(historial);
                 if (historialActualizado == null)

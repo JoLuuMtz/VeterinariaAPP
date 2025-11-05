@@ -153,10 +153,15 @@ namespace Veterinaria.Services
                 if (cita is null)
                     return ServiceResult<CitaResponseDTO>.Fail("Cita no encontrada.");
 
-                cita.FechaHora = citaUpdateDTO.FechaHora;
-                cita.Estado = citaUpdateDTO.Estado;
-                cita.Motivo = citaUpdateDTO.Motivo;
-                cita.Observaciones = citaUpdateDTO.Observaciones;
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (citaUpdateDTO.FechaHora.HasValue)
+                    cita.FechaHora = citaUpdateDTO.FechaHora.Value;
+                if (citaUpdateDTO.Estado != null)
+                    cita.Estado = citaUpdateDTO.Estado;
+                if (citaUpdateDTO.Motivo != null)
+                    cita.Motivo = citaUpdateDTO.Motivo;
+                if (citaUpdateDTO.Observaciones != null)
+                    cita.Observaciones = citaUpdateDTO.Observaciones;
 
                 var citaActualizada = await _citaRepository.UpdateAsync(cita);
                 if (citaActualizada is null)

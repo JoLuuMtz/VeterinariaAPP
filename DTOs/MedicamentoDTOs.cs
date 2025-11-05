@@ -4,41 +4,30 @@ namespace Veterinaria.DTOs
 {
     public class MedicamentoCreateDTO
     {
-        [Required]
-        [MaxLength(200)]
-        public string Nombre { get; set; }
+        [Required] [MaxLength(200)] public string Nombre { get; set; }
 
-        [MaxLength(500)]
-        public string Descripcion { get; set; }
+        [MaxLength(500)] public string Descripcion { get; set; }
 
-        [MaxLength(100)]
-        public string Dosis { get; set; }
+        [MaxLength(100)] public string Dosis { get; set; }
 
-        [MaxLength(100)]
-        public string Frecuencia { get; set; }
+        [MaxLength(100)] public string Frecuencia { get; set; }
 
         public int DuracionDias { get; set; }
 
-        [Required]
-        public int HistorialMedicoId { get; set; }
+        [Required] public int HistorialMedicoId { get; set; }
     }
 
     public class MedicamentoUpdateDTO
     {
-        [Required]
-        [MaxLength(200)]
-        public string Nombre { get; set; }
+        [MaxLength(200)] public string? Nombre { get; set; }
 
-        [MaxLength(500)]
-        public string Descripcion { get; set; }
+        [MaxLength(500)] public string? Descripcion { get; set; }
 
-        [MaxLength(100)]
-        public string Dosis { get; set; }
+        [MaxLength(100)] public string? Dosis { get; set; }
 
-        [MaxLength(100)]
-        public string Frecuencia { get; set; }
+        [MaxLength(100)] public string? Frecuencia { get; set; }
 
-        public int DuracionDias { get; set; }
+        public int? DuracionDias { get; set; }
     }
 
     public class MedicamentoResponseDTO

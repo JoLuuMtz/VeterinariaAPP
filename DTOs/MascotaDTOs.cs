@@ -4,59 +4,45 @@ namespace Veterinaria.DTOs
 {
     public class MascotaCreateDTO
     {
-        [Required]
-        [MaxLength(100)]
-        public string Nombre { get; set; }
+        [Required] [MaxLength(100)] public string Nombre { get; set; }
 
-        [MaxLength(50)]
-        public string Especie { get; set; }
+        [MaxLength(50)] public string Especie { get; set; }
 
-        [MaxLength(100)]
-        public string Raza { get; set; }
+        [MaxLength(100)] public string Raza { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
 
-        [MaxLength(10)]
-        public string Sexo { get; set; }
+        [MaxLength(10)] public string Sexo { get; set; }
 
-        [MaxLength(50)]
-        public string Color { get; set; }
+        [MaxLength(50)] public string Color { get; set; }
 
         public decimal Peso { get; set; }
 
-        [MaxLength(500)]
-        public string Observaciones { get; set; }
+        [MaxLength(500)] public string Observaciones { get; set; }
 
-       
+
         public int? ClienteId { get; set; }
     }
 
     public class MascotaUpdateDTO
     {
-        
-        [MaxLength(100)]
-        public string Nombre { get; set; }
+        [MaxLength(100)] public string? Nombre { get; set; }
 
-        [MaxLength(50)]
-        public string Especie { get; set; }
+        [MaxLength(50)] public string? Especie { get; set; }
 
-        [MaxLength(100)]
-        public string Raza { get; set; }
+        [MaxLength(100)] public string? Raza { get; set; }
 
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
 
-        [MaxLength(10)]
-        public string Sexo { get; set; }
+        [MaxLength(10)] public string? Sexo { get; set; }
 
-        [MaxLength(50)]
-        public string Color { get; set; }
+        [MaxLength(50)] public string? Color { get; set; }
 
-        public decimal Peso { get; set; }
+        public decimal? Peso { get; set; }
 
-        [MaxLength(500)]
-        public string Observaciones { get; set; }
+        [MaxLength(500)] public string? Observaciones { get; set; }
 
-        public bool Activo { get; set; }
+        public bool? Activo { get; set; }
         public int? ClienteId { get; set; }
     }
 

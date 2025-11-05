@@ -121,16 +121,28 @@ namespace Veterinaria.Services
                         return ServiceResult<MascotaResponseDTO>.Fail("El cliente especificado no existe.");
                 }
 
-                mascota.Nombre = mascotaUpdateDTO.Nombre;
-                mascota.Especie = mascotaUpdateDTO.Especie;
-                mascota.Raza = mascotaUpdateDTO.Raza;
-                mascota.FechaNacimiento = mascotaUpdateDTO.FechaNacimiento;
-                mascota.Sexo = mascotaUpdateDTO.Sexo;
-                mascota.Color = mascotaUpdateDTO.Color;
-                mascota.Peso = mascotaUpdateDTO.Peso;
-                mascota.Observaciones = mascotaUpdateDTO.Observaciones;
-                mascota.Activo = mascotaUpdateDTO.Activo;
-                mascota.ClienteId = mascotaUpdateDTO.ClienteId; // Actualizar el ClienteId para asignar a otro cliente
+                // Actualización parcial: solo actualizar campos que no sean null
+                if (mascotaUpdateDTO.Nombre != null)
+                    mascota.Nombre = mascotaUpdateDTO.Nombre;
+                if (mascotaUpdateDTO.Especie != null)
+                    mascota.Especie = mascotaUpdateDTO.Especie;
+                if (mascotaUpdateDTO.Raza != null)
+                    mascota.Raza = mascotaUpdateDTO.Raza;
+                if (mascotaUpdateDTO.FechaNacimiento.HasValue)
+                    mascota.FechaNacimiento = mascotaUpdateDTO.FechaNacimiento.Value;
+                if (mascotaUpdateDTO.Sexo != null)
+                    mascota.Sexo = mascotaUpdateDTO.Sexo;
+                if (mascotaUpdateDTO.Color != null)
+                    mascota.Color = mascotaUpdateDTO.Color;
+                if (mascotaUpdateDTO.Peso.HasValue)
+                    mascota.Peso = mascotaUpdateDTO.Peso.Value;
+                if (mascotaUpdateDTO.Observaciones != null)
+                    mascota.Observaciones = mascotaUpdateDTO.Observaciones;
+                if (mascotaUpdateDTO.Activo.HasValue)
+                    mascota.Activo = mascotaUpdateDTO.Activo.Value;
+                if (mascotaUpdateDTO.ClienteId.HasValue)
+                    mascota.ClienteId =
+                        mascotaUpdateDTO.ClienteId; // Actualizar el ClienteId para asignar a otro cliente
 
                 var mascotaActualizada = await _mascotaRepository.UpdateAsync(mascota);
                 if (mascotaActualizada == null)

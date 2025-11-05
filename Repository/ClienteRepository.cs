@@ -81,5 +81,20 @@ namespace Veterinaria.Repository
 
             return await query.AnyAsync();
         }
+
+        public async Task<bool> ExistsByTelefonoAsync(string telefono, int? excludeId = null)
+        {
+            if (string.IsNullOrWhiteSpace(telefono))
+                return false;
+
+            var telefonoLower = telefono.ToLower();
+            var query = _context.Clientes.Where(c =>
+                c.Telefono != null && c.Telefono.ToLower() == telefonoLower);
+
+            if (excludeId.HasValue)
+                query = query.Where(c => c.Id != excludeId.Value);
+
+            return await query.AnyAsync();
+        }
     }
 }
