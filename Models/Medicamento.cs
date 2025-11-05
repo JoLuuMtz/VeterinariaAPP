@@ -25,7 +25,7 @@ namespace Veterinaria.Models
 
         // Llave foránea
         [ForeignKey("HistorialMedico")]
-        public int HistorialMedicoId { get; set; }
+        public int HistorialMedicoId { get; set; } // depende de la tabla HistorialMedico
         public HistorialMedico HistorialMedico { get; set; }
     }
 }

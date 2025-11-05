@@ -38,7 +38,7 @@ namespace Veterinaria.Models
 
         // Llave foránea
         [ForeignKey("Cliente")]
-        public int? ClienteId { get; set; }
+        public int? ClienteId { get; set; } // depende de la tabla cliente opcional
         public Cliente? Cliente { get; set; }
 
         // Relaciones

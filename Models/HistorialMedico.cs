@@ -33,12 +33,12 @@ namespace Veterinaria.Models
 
         // Llaves foráneas
         [ForeignKey("Mascota")]
-        public int MascotaId { get; set; }
+        public int MascotaId { get; set; } // depende de la tabla Mascota
         public Mascota Mascota { get; set; }
 
         [ForeignKey("Veterinario")]
         public int VeterinarioId { get; set; }
-        public Veterinario Veterinario { get; set; }
+        public Veterinario Veterinario { get; set; } // depende de la tabla Veterinario
 
         // Relaciones
         public ICollection<Medicamento> Medicamentos { get; set; }
