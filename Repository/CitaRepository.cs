@@ -75,7 +75,7 @@ namespace Veterinaria.Repository
         public async Task<bool> DeleteAsync(int id)
         {
             var cita = await _context.Citas.FindAsync(id);
-            if (cita == null) return false;
+            if (cita is null) return false;
 
             _context.Citas.Remove(cita);
             await _context.SaveChangesAsync();

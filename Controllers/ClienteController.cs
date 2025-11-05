@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Veterinaria.DTOs;
 using Veterinaria.Interfaces;
-using Veterinaria.Models;
-using VeterinariaApp.Models;
 
 namespace Veterinaria.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar clientes de la veterinaria
+    /// </summary>
     [ApiController]
-    [Route("api/cliente")]
+    [Route("api/[controller]")]
     public class ClienteController : ControllerBase
     {
         private readonly IClienteService _clienteService;
@@ -17,74 +18,97 @@ namespace Veterinaria.Controllers
             _clienteService = clienteService;
         }
 
-        [HttpGet("all")]
-        public  ActionResult<IEnumerable<Cliente>> GetAll()
+        /// <summary>
+        /// Obtiene todos los clientes
+        /// </summary>
+        /// <returns>Lista de clientes</returns>
+        /// <response code="200">Retorna la lista de clientes exitosamente</response>
+        /// <response code="400">Si hubo un error al obtener los clientes</response>
+        [HttpGet]
+        public async Task<ActionResult<ServiceResult<IEnumerable<ClienteResponseDTO>>>> GetAll()
         {
+            var result = await _clienteService.GetAllAsync();
+            if (!result.Success)
+                return BadRequest(result);
 
-            var clientes = new List<Cliente>
-{
-    new Cliente
-    {
-        Id = 1,
-        Nombre = "Juan",
-        Apellido = "Pérez",
-        Telefono = "123-456-7890",
-        Email = "juan.perez@gmail.com",
-        DocumentoIdentidad = "A123456789",
-        Direccion = "Calle Principal 123",
-        FechaRegistro = DateTime.Now.AddYears(-2),
-        Activo = true
-    },
-    new Cliente
-    {
-        Id = 2,
-        Nombre = "María",
-        Apellido = "González",
-        Telefono = "098-765-4321",
-        Email = "maria.gonzalez@gmail.com",
-        DocumentoIdentidad = "B987654321",
-        Direccion = "Avenida Central 456",
-        FechaRegistro = DateTime.Now.AddMonths(-6),
-        Activo = true
-    },
-    new Cliente
-    {
-        Id = 3,
-        Nombre = "Carlos",
-        Apellido = "Rodríguez",
-        Telefono = "555-123-4567",
-        Email = "carlos.rodriguez@hotmail.com",
-        DocumentoIdentidad = "C456789123",
-        Direccion = "Plaza Mayor 789",
-        FechaRegistro = DateTime.Now.AddDays(-45),
-        Activo = true
-    },
-    new Cliente
-    {
-        Id = 4,
-        Nombre = "Ana",
-        Apellido = "Martínez",
-        Telefono = "777-888-9999",
-        Email = "ana.martinez@yahoo.com",
-        DocumentoIdentidad = "D789123456",
-        Direccion = "Calle Secundaria 321",
-        FechaRegistro = DateTime.Now.AddYears(-1),
-        Activo = false
-    },
-    new Cliente
-    {
-        Id = 5,
-        Nombre = "Luis",
-        Apellido = "Sánchez",
-        Telefono = "444-555-6666",
-        Email = "luis.sanchez@outlook.com",
-        DocumentoIdentidad = "E147258369",
-        Direccion = "Avenida Norte 147",
-        FechaRegistro = DateTime.Now.AddMonths(-3),
-        Activo = true
-    }
-};
-            return Ok(clientes);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Obtiene un cliente por su ID
+        /// </summary>
+        /// <param name="id">ID del cliente</param>
+        /// <returns>Cliente encontrado</returns>
+        /// <response code="200">Retorna el cliente exitosamente</response>
+        /// <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceResult<ClienteResponseDTO>>> GetById(int id)
+        {
+            var result = await _clienteService.GetByIdAsync(id);
+            if (!result.Success)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Crea un nuevo cliente
+        /// </summary>
+        /// <param name="clienteCreateDTO">Datos del cliente a crear</param>
+        /// <returns>Cliente creado</returns>
+        /// <response code="201">Cliente creado exitosamente</response>
+        /// <response code="400">Si hubo un error en la validaciÃ³n o creaciÃ³n</response>
+        [HttpPost]
+        public async Task<ActionResult<ServiceResult<ClienteResponseDTO>>> Create(
+            [FromBody] ClienteCreateDTO clienteCreateDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _clienteService.CreateAsync(clienteCreateDTO);
+            if (!result.Success)
+                return BadRequest(result);
+
+            return CreatedAtAction(nameof(GetById), new { id = result.Data.Id }, result);
+        }
+
+        /// <summary>
+        /// Actualiza un cliente existente
+        /// </summary>
+        /// <param name="id">ID del cliente a actualizar</param>
+        /// <param name="clienteUpdateDTO">Datos actualizados del cliente</param>
+        /// <returns>Cliente actualizado</returns>
+        /// <response code="200">Cliente actualizado exitosamente</response>
+        /// <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ServiceResult<ClienteResponseDTO>>> Update(int id,
+            [FromBody] ClienteUpdateDTO clienteUpdateDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _clienteService.UpdateAsync(id, clienteUpdateDTO);
+            if (!result.Success)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Elimina un cliente
+        /// </summary>
+        /// <param name="id">ID del cliente a eliminar</param>
+        /// <returns>Resultado de la eliminaciÃ³n</returns>
+        /// <response code="200">Cliente eliminado exitosamente</response>
+        /// <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ServiceResult<bool>>> Delete(int id)
+        {
+            var result = await _clienteService.DeleteAsync(id);
+            if (!result.Success)
+                return BadRequest(result);
+
+            return Ok(result);
         }
     }
 }

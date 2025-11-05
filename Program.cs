@@ -3,7 +3,6 @@ using Veterinaria.Interfaces;
 using Veterinaria.Repository;
 using Veterinaria.Services;
 using VeterinariaApp.Data;
-
 using FluentValidation.AspNetCore;
 
 namespace Veterinaria
@@ -28,6 +27,14 @@ namespace Veterinaria
                     Version = "v1",
                     Description = "API para gestión de clínica veterinaria"
                 });
+
+                // Configurar XML para documentación
+                var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                if (File.Exists(xmlPath))
+                {
+                    c.IncludeXmlComments(xmlPath);
+                }
             });
 
             // Registro de Repositorios

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DPszWRBJjaw=",
+  "dgSpecHash": "rHCPjw/Zdxw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
+  "projectFilePath": "c:\\Users\\JoLuuu\\Desktop\\Veterinaria\\Veterinaria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JoLuuu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\JoLuuu\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

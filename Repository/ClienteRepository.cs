@@ -52,5 +52,34 @@ namespace Veterinaria.Repository
         {
             return await _context.Clientes.AnyAsync(c => c.Id == id);
         }
+
+        public async Task<bool> ExistsByEmailAsync(string email, int? excludeId = null)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            var emailLower = email.ToLower();
+            var query = _context.Clientes.Where(c => c.Email != null && c.Email.ToLower() == emailLower);
+
+            if (excludeId.HasValue)
+                query = query.Where(c => c.Id != excludeId.Value);
+
+            return await query.AnyAsync();
+        }
+
+        public async Task<bool> ExistsByDocumentoIdentidadAsync(string documentoIdentidad, int? excludeId = null)
+        {
+            if (string.IsNullOrWhiteSpace(documentoIdentidad))
+                return false;
+
+            var documentoLower = documentoIdentidad.ToLower();
+            var query = _context.Clientes.Where(c =>
+                c.DocumentoIdentidad != null && c.DocumentoIdentidad.ToLower() == documentoLower);
+
+            if (excludeId.HasValue)
+                query = query.Where(c => c.Id != excludeId.Value);
+
+            return await query.AnyAsync();
+        }
     }
 }

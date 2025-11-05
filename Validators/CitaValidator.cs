@@ -10,8 +10,8 @@ namespace Veterinaria.Validators
             // Validación de FechaHora
             RuleFor(x => x.FechaHora)
                 .NotEmpty().WithMessage("La fecha y hora de la cita es obligatoria.")
-                .GreaterThan(DateTime.Now.AddMinutes(-30)).WithMessage(
-                    "La fecha y hora de la cita debe ser válida y no puede ser más de 30 minutos en el pasado.");
+                .GreaterThan(DateTime.Now).WithMessage(
+                    "La fechas de las citas deben ser a futuro");
 
             // Validación de Estado
             RuleFor(x => x.Estado)

@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Veterinaria</name>
+    </assembly>
+    <members>
+        <member name="T:Veterinaria.Controllers.CitaController">
+            <summary>
+            Controlador para gestionar citas de la veterinaria
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.GetAll">
+            <summary>
+            Obtiene todas las citas
+            </summary>
+            <returns>Lista de citas</returns>
+            <response code="200">Retorna la lista de citas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las citas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.GetById(System.Int32)">
+            <summary>
+            Obtiene una cita por su ID
+            </summary>
+            <param name="id">ID de la cita</param>
+            <returns>Cita encontrada</returns>
+            <response code="200">Retorna la cita exitosamente</response>
+            <response code="400">Si la cita no fue encontrada o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.GetByMascotaId(System.Int32)">
+            <summary>
+            Obtiene todas las citas de una mascota
+            </summary>
+            <param name="mascotaId">ID de la mascota</param>
+            <returns>Lista de citas de la mascota</returns>
+            <response code="200">Retorna la lista de citas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las citas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.GetByVeterinarioId(System.Int32)">
+            <summary>
+            Obtiene todas las citas de un veterinario
+            </summary>
+            <param name="veterinarioId">ID del veterinario</param>
+            <returns>Lista de citas del veterinario</returns>
+            <response code="200">Retorna la lista de citas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las citas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.GetByFecha(System.DateTime)">
+            <summary>
+            Obtiene todas las citas de una fecha específica
+            </summary>
+            <param name="fecha">Fecha de las citas (formato: yyyy-MM-dd)</param>
+            <returns>Lista de citas de la fecha</returns>
+            <response code="200">Retorna la lista de citas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las citas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.Create(Veterinaria.DTOs.CitaCreateDTO)">
+            <summary>
+            Crea una nueva cita
+            </summary>
+            <param name="citaCreateDTO">Datos de la cita a crear</param>
+            <returns>Cita creada</returns>
+            <response code="201">Cita creada exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.Update(System.Int32,Veterinaria.DTOs.CitaUpdateDTO)">
+            <summary>
+            Actualiza una cita existente
+            </summary>
+            <param name="id">ID de la cita a actualizar</param>
+            <param name="citaUpdateDTO">Datos actualizados de la cita</param>
+            <returns>Cita actualizada</returns>
+            <response code="200">Cita actualizada exitosamente</response>
+            <response code="400">Si la cita no fue encontrada o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.CitaController.Delete(System.Int32)">
+            <summary>
+            Elimina una cita
+            </summary>
+            <param name="id">ID de la cita a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Cita eliminada exitosamente</response>
+            <response code="400">Si la cita no fue encontrada o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Controllers.ClienteController">
+            <summary>
+            Controlador para gestionar clientes de la veterinaria
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.ClienteController.GetAll">
+            <summary>
+            Obtiene todos los clientes
+            </summary>
+            <returns>Lista de clientes</returns>
+            <response code="200">Retorna la lista de clientes exitosamente</response>
+            <response code="400">Si hubo un error al obtener los clientes</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.ClienteController.GetById(System.Int32)">
+            <summary>
+            Obtiene un cliente por su ID
+            </summary>
+            <param name="id">ID del cliente</param>
+            <returns>Cliente encontrado</returns>
+            <response code="200">Retorna el cliente exitosamente</response>
+            <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.ClienteController.Create(Veterinaria.DTOs.ClienteCreateDTO)">
+            <summary>
+            Crea un nuevo cliente
+            </summary>
+            <param name="clienteCreateDTO">Datos del cliente a crear</param>
+            <returns>Cliente creado</returns>
+            <response code="201">Cliente creado exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.ClienteController.Update(System.Int32,Veterinaria.DTOs.ClienteUpdateDTO)">
+            <summary>
+            Actualiza un cliente existente
+            </summary>
+            <param name="id">ID del cliente a actualizar</param>
+            <param name="clienteUpdateDTO">Datos actualizados del cliente</param>
+            <returns>Cliente actualizado</returns>
+            <response code="200">Cliente actualizado exitosamente</response>
+            <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.ClienteController.Delete(System.Int32)">
+            <summary>
+            Elimina un cliente
+            </summary>
+            <param name="id">ID del cliente a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Cliente eliminado exitosamente</response>
+            <response code="400">Si el cliente no fue encontrado o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Controllers.HistorialMedicoController">
+            <summary>
+            Controlador para gestionar historiales médicos de las mascotas
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.GetAll">
+            <summary>
+            Obtiene todos los historiales médicos
+            </summary>
+            <returns>Lista de historiales médicos</returns>
+            <response code="200">Retorna la lista de historiales médicos exitosamente</response>
+            <response code="400">Si hubo un error al obtener los historiales médicos</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.GetById(System.Int32)">
+            <summary>
+            Obtiene un historial médico por su ID
+            </summary>
+            <param name="id">ID del historial médico</param>
+            <returns>Historial médico encontrado</returns>
+            <response code="200">Retorna el historial médico exitosamente</response>
+            <response code="400">Si el historial médico no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.GetByMascotaId(System.Int32)">
+            <summary>
+            Obtiene todos los historiales médicos de una mascota
+            </summary>
+            <param name="mascotaId">ID de la mascota</param>
+            <returns>Lista de historiales médicos de la mascota</returns>
+            <response code="200">Retorna la lista de historiales médicos exitosamente</response>
+            <response code="400">Si hubo un error al obtener los historiales médicos</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.GetByVeterinarioId(System.Int32)">
+            <summary>
+            Obtiene todos los historiales médicos de un veterinario
+            </summary>
+            <param name="veterinarioId">ID del veterinario</param>
+            <returns>Lista de historiales médicos del veterinario</returns>
+            <response code="200">Retorna la lista de historiales médicos exitosamente</response>
+            <response code="400">Si hubo un error al obtener los historiales médicos</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.Create(Veterinaria.DTOs.HistorialMedicoCreateDTO)">
+            <summary>
+            Crea un nuevo historial médico
+            </summary>
+            <param name="historialMedicoCreateDTO">Datos del historial médico a crear</param>
+            <returns>Historial médico creado</returns>
+            <response code="201">Historial médico creado exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.Update(System.Int32,Veterinaria.DTOs.HistorialMedicoUpdateDTO)">
+            <summary>
+            Actualiza un historial médico existente
+            </summary>
+            <param name="id">ID del historial médico a actualizar</param>
+            <param name="historialMedicoUpdateDTO">Datos actualizados del historial médico</param>
+            <returns>Historial médico actualizado</returns>
+            <response code="200">Historial médico actualizado exitosamente</response>
+            <response code="400">Si el historial médico no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.HistorialMedicoController.Delete(System.Int32)">
+            <summary>
+            Elimina un historial médico
+            </summary>
+            <param name="id">ID del historial médico a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Historial médico eliminado exitosamente</response>
+            <response code="400">Si el historial médico no fue encontrado o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Controllers.MascotaController">
+            <summary>
+            Controlador para gestionar mascotas de la veterinaria
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.GetAll">
+            <summary>
+            Obtiene todas las mascotas
+            </summary>
+            <returns>Lista de mascotas</returns>
+            <response code="200">Retorna la lista de mascotas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las mascotas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.GetById(System.Int32)">
+            <summary>
+            Obtiene una mascota por su ID
+            </summary>
+            <param name="id">ID de la mascota</param>
+            <returns>Mascota encontrada</returns>
+            <response code="200">Retorna la mascota exitosamente</response>
+            <response code="400">Si la mascota no fue encontrada o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.GetByClienteId(System.Int32)">
+            <summary>
+            Obtiene todas las mascotas de un cliente
+            </summary>
+            <param name="clienteId">ID del cliente</param>
+            <returns>Lista de mascotas del cliente</returns>
+            <response code="200">Retorna la lista de mascotas exitosamente</response>
+            <response code="400">Si hubo un error al obtener las mascotas</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.Create(Veterinaria.DTOs.MascotaCreateDTO)">
+            <summary>
+            Crea una nueva mascota
+            </summary>
+            <param name="mascotaCreateDTO">Datos de la mascota a crear</param>
+            <returns>Mascota creada</returns>
+            <response code="201">Mascota creada exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.Update(System.Int32,Veterinaria.DTOs.MascotaUpdateDTO)">
+            <summary>
+            Actualiza una mascota existente
+            </summary>
+            <param name="id">ID de la mascota a actualizar</param>
+            <param name="mascotaUpdateDTO">Datos actualizados de la mascota</param>
+            <returns>Mascota actualizada</returns>
+            <response code="200">Mascota actualizada exitosamente</response>
+            <response code="400">Si la mascota no fue encontrada o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MascotaController.Delete(System.Int32)">
+            <summary>
+            Elimina una mascota
+            </summary>
+            <param name="id">ID de la mascota a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Mascota eliminada exitosamente</response>
+            <response code="400">Si la mascota no fue encontrada o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Controllers.MedicamentoController">
+            <summary>
+            Controlador para gestionar medicamentos de la veterinaria
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.GetAll">
+            <summary>
+            Obtiene todos los medicamentos
+            </summary>
+            <returns>Lista de medicamentos</returns>
+            <response code="200">Retorna la lista de medicamentos exitosamente</response>
+            <response code="400">Si hubo un error al obtener los medicamentos</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.GetById(System.Int32)">
+            <summary>
+            Obtiene un medicamento por su ID
+            </summary>
+            <param name="id">ID del medicamento</param>
+            <returns>Medicamento encontrado</returns>
+            <response code="200">Retorna el medicamento exitosamente</response>
+            <response code="400">Si el medicamento no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.GetByHistorialMedicoId(System.Int32)">
+            <summary>
+            Obtiene todos los medicamentos de un historial médico
+            </summary>
+            <param name="historialMedicoId">ID del historial médico</param>
+            <returns>Lista de medicamentos del historial médico</returns>
+            <response code="200">Retorna la lista de medicamentos exitosamente</response>
+            <response code="400">Si hubo un error al obtener los medicamentos</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.Create(Veterinaria.DTOs.MedicamentoCreateDTO)">
+            <summary>
+            Crea un nuevo medicamento
+            </summary>
+            <param name="medicamentoCreateDTO">Datos del medicamento a crear</param>
+            <returns>Medicamento creado</returns>
+            <response code="201">Medicamento creado exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.Update(System.Int32,Veterinaria.DTOs.MedicamentoUpdateDTO)">
+            <summary>
+            Actualiza un medicamento existente
+            </summary>
+            <param name="id">ID del medicamento a actualizar</param>
+            <param name="medicamentoUpdateDTO">Datos actualizados del medicamento</param>
+            <returns>Medicamento actualizado</returns>
+            <response code="200">Medicamento actualizado exitosamente</response>
+            <response code="400">Si el medicamento no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.MedicamentoController.Delete(System.Int32)">
+            <summary>
+            Elimina un medicamento
+            </summary>
+            <param name="id">ID del medicamento a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Medicamento eliminado exitosamente</response>
+            <response code="400">Si el medicamento no fue encontrado o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Controllers.VeterinarioController">
+            <summary>
+            Controlador para gestionar veterinarios de la clínica
+            </summary>
+        </member>
+        <member name="M:Veterinaria.Controllers.VeterinarioController.GetAll">
+            <summary>
+            Obtiene todos los veterinarios
+            </summary>
+            <returns>Lista de veterinarios</returns>
+            <response code="200">Retorna la lista de veterinarios exitosamente</response>
+            <response code="400">Si hubo un error al obtener los veterinarios</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.VeterinarioController.GetById(System.Int32)">
+            <summary>
+            Obtiene un veterinario por su ID
+            </summary>
+            <param name="id">ID del veterinario</param>
+            <returns>Veterinario encontrado</returns>
+            <response code="200">Retorna el veterinario exitosamente</response>
+            <response code="400">Si el veterinario no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.VeterinarioController.Create(Veterinaria.DTOs.VeterinarioCreateDTO)">
+            <summary>
+            Crea un nuevo veterinario
+            </summary>
+            <param name="veterinarioCreateDTO">Datos del veterinario a crear</param>
+            <returns>Veterinario creado</returns>
+            <response code="201">Veterinario creado exitosamente</response>
+            <response code="400">Si hubo un error en la validación o creación</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.VeterinarioController.Update(System.Int32,Veterinaria.DTOs.VeterinarioUpdateDTO)">
+            <summary>
+            Actualiza un veterinario existente
+            </summary>
+            <param name="id">ID del veterinario a actualizar</param>
+            <param name="veterinarioUpdateDTO">Datos actualizados del veterinario</param>
+            <returns>Veterinario actualizado</returns>
+            <response code="200">Veterinario actualizado exitosamente</response>
+            <response code="400">Si el veterinario no fue encontrado o hubo un error</response>
+        </member>
+        <member name="M:Veterinaria.Controllers.VeterinarioController.Delete(System.Int32)">
+            <summary>
+            Elimina un veterinario
+            </summary>
+            <param name="id">ID del veterinario a eliminar</param>
+            <returns>Resultado de la eliminación</returns>
+            <response code="200">Veterinario eliminado exitosamente</response>
+            <response code="400">Si el veterinario no fue encontrado o hubo un error</response>
+        </member>
+        <member name="T:Veterinaria.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Veterinaria.Migrations.Migration2">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.Migration2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.Migration2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.Migration2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Veterinaria.Migrations.OpcionalClientInMascota">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.OpcionalClientInMascota.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.OpcionalClientInMascota.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.OpcionalClientInMascota.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

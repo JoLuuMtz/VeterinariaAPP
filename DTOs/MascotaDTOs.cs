@@ -27,13 +27,13 @@ namespace Veterinaria.DTOs
         [MaxLength(500)]
         public string Observaciones { get; set; }
 
-        [Required]
+       
         public int? ClienteId { get; set; }
     }
 
     public class MascotaUpdateDTO
     {
-        [Required]
+        
         [MaxLength(100)]
         public string Nombre { get; set; }
 
@@ -57,6 +57,7 @@ namespace Veterinaria.DTOs
         public string Observaciones { get; set; }
 
         public bool Activo { get; set; }
+        public int? ClienteId { get; set; }
     }
 
     public class MascotaResponseDTO
