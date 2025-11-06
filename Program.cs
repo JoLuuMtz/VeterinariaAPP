@@ -23,7 +23,7 @@ namespace Veterinaria
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-                    Title = "Veterinaria API",
+                    Title = "Veterinaria API Jorge Martinez Y Fabio Trujillo ",
                     Version = "v1",
                     Description = "API para gestión de clínica veterinaria"
                 });
