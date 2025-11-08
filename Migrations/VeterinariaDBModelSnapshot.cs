@@ -266,6 +266,25 @@ namespace Veterinaria.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DocumentoIdentidad")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Veterinarios_DocumentoIdentidad_Unique");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Veterinarios_Email_Unique")
+                        .HasFilter("[Email] IS NOT NULL AND [Email] != ''");
+
+                    b.HasIndex("NumeroLicencia")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Veterinarios_NumeroLicencia_Unique")
+                        .HasFilter("[NumeroLicencia] IS NOT NULL AND [NumeroLicencia] != ''");
+
+                    b.HasIndex("Telefono")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Veterinarios_Telefono_Unique")
+                        .HasFilter("[Telefono] IS NOT NULL AND [Telefono] != ''");
+
                     b.ToTable("Veterinarios");
                 });
 
@@ -314,6 +333,20 @@ namespace Veterinaria.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DocumentoIdentidad")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Clientes_DocumentoIdentidad_Unique");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Clientes_Email_Unique")
+                        .HasFilter("[Email] IS NOT NULL AND [Email] != ''");
+
+                    b.HasIndex("Telefono")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Clientes_Telefono_Unique")
+                        .HasFilter("[Telefono] IS NOT NULL AND [Telefono] != ''");
 
                     b.ToTable("Clientes");
                 });

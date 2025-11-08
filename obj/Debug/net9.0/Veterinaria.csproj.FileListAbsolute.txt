@@ -171,3 +171,4 @@ C:\Users\JoLuuu\Desktop\Veterinaria\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\JoLuuu\Desktop\Veterinaria\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 C:\Users\JoLuuu\Desktop\Veterinaria\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\JoLuuu\Desktop\Veterinaria\obj\Debug\net9.0\Veterinaria.xml
+C:\Users\JoLuuu\Desktop\Veterinaria\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

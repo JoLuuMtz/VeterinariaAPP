@@ -403,5 +403,17 @@
         <member name="M:Veterinaria.Migrations.OpcionalClientInMascota.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:Veterinaria.Migrations.LastOneMigrations">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.LastOneMigrations.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.LastOneMigrations.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Veterinaria.Migrations.LastOneMigrations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

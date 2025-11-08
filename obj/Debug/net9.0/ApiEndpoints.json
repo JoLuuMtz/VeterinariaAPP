@@ -1,15 +1,951 @@
 [
   {
-    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "ContainingType": "Veterinaria.Controllers.CitaController",
     "Method": "GetAll",
-    "RelativePath": "api/cliente/all",
+    "RelativePath": "api/Cita",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[VeterinariaApp.Models.Cliente, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "Create",
+    "RelativePath": "api/Cita",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "citaCreateDTO",
+        "Type": "Veterinaria.DTOs.CitaCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "GetById",
+    "RelativePath": "api/Cita/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "Update",
+    "RelativePath": "api/Cita/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "citaUpdateDTO",
+        "Type": "Veterinaria.DTOs.CitaUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "Delete",
+    "RelativePath": "api/Cita/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "GetByFecha",
+    "RelativePath": "api/Cita/fecha/{fecha}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fecha",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "GetByMascotaId",
+    "RelativePath": "api/Cita/mascota/{mascotaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mascotaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.CitaController",
+    "Method": "GetByVeterinarioId",
+    "RelativePath": "api/Cita/veterinario/{veterinarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "veterinarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.CitaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "Method": "GetAll",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.ClienteResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "Method": "Create",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteCreateDTO",
+        "Type": "Veterinaria.DTOs.ClienteCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.ClienteResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "Method": "GetById",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.ClienteResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "Method": "Update",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "clienteUpdateDTO",
+        "Type": "Veterinaria.DTOs.ClienteUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.ClienteResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.ClienteController",
+    "Method": "Delete",
+    "RelativePath": "api/Cliente/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "GetAll",
+    "RelativePath": "api/HistorialMedico",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "Create",
+    "RelativePath": "api/HistorialMedico",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "historialMedicoCreateDTO",
+        "Type": "Veterinaria.DTOs.HistorialMedicoCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "GetById",
+    "RelativePath": "api/HistorialMedico/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "Update",
+    "RelativePath": "api/HistorialMedico/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "historialMedicoUpdateDTO",
+        "Type": "Veterinaria.DTOs.HistorialMedicoUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "Delete",
+    "RelativePath": "api/HistorialMedico/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "GetByMascotaId",
+    "RelativePath": "api/HistorialMedico/mascota/{mascotaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mascotaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.HistorialMedicoController",
+    "Method": "GetByVeterinarioId",
+    "RelativePath": "api/HistorialMedico/veterinario/{veterinarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "veterinarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.HistorialMedicoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "GetAll",
+    "RelativePath": "api/Mascota",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.MascotaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "Create",
+    "RelativePath": "api/Mascota",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mascotaCreateDTO",
+        "Type": "Veterinaria.DTOs.MascotaCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MascotaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "GetById",
+    "RelativePath": "api/Mascota/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MascotaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "Update",
+    "RelativePath": "api/Mascota/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "mascotaUpdateDTO",
+        "Type": "Veterinaria.DTOs.MascotaUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MascotaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "Delete",
+    "RelativePath": "api/Mascota/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MascotaController",
+    "Method": "GetByClienteId",
+    "RelativePath": "api/Mascota/cliente/{clienteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clienteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.MascotaResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "GetAll",
+    "RelativePath": "api/Medicamento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.MedicamentoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "Create",
+    "RelativePath": "api/Medicamento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicamentoCreateDTO",
+        "Type": "Veterinaria.DTOs.MedicamentoCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MedicamentoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "GetById",
+    "RelativePath": "api/Medicamento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MedicamentoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "Update",
+    "RelativePath": "api/Medicamento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicamentoUpdateDTO",
+        "Type": "Veterinaria.DTOs.MedicamentoUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.MedicamentoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "Delete",
+    "RelativePath": "api/Medicamento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.MedicamentoController",
+    "Method": "GetByHistorialMedicoId",
+    "RelativePath": "api/Medicamento/historial/{historialMedicoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "historialMedicoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.MedicamentoResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.VeterinarioController",
+    "Method": "GetAll",
+    "RelativePath": "api/Veterinario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Collections.Generic.IEnumerable\u00601[[Veterinaria.DTOs.VeterinarioResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.VeterinarioController",
+    "Method": "Create",
+    "RelativePath": "api/Veterinario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "veterinarioCreateDTO",
+        "Type": "Veterinaria.DTOs.VeterinarioCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.VeterinarioResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.VeterinarioController",
+    "Method": "GetById",
+    "RelativePath": "api/Veterinario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.VeterinarioResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.VeterinarioController",
+    "Method": "Update",
+    "RelativePath": "api/Veterinario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "veterinarioUpdateDTO",
+        "Type": "Veterinaria.DTOs.VeterinarioUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[Veterinaria.DTOs.VeterinarioResponseDTO, Veterinaria, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Veterinaria.Controllers.VeterinarioController",
+    "Method": "Delete",
+    "RelativePath": "api/Veterinario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Veterinaria.DTOs.ServiceResult\u00601[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
